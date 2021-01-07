@@ -1,0 +1,6 @@
+excluded_logins:
+  default: ''
+  type: list
+  list_type: compact
+  allow_any: true
+  client: true
