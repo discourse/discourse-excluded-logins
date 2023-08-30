@@ -1,0 +1,1 @@
+DEPRECATED - please switch to discourse-hide-auth-method https://meta.discourse.org/t/227584

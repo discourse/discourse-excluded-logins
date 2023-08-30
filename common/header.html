@@ -16,4 +16,24 @@
       }
     }
   );
+
+  const getURL = require("discourse-common/lib/get-url").default;
+
+  if (api.getCurrentUser()?.admin) {
+    const themeId = themePrefix("foo").match(
+      /theme_translations\.(\d+)\.foo/
+    )[1];
+    const themeURL = getURL(`/admin/customize/themes/${themeId}`);
+
+    api.addGlobalNotice(
+      `<b>Admin notice:</b> you're using the <em>discourse-excluded-logins</em> theme component. This has been deprecated in favour of <a href="https://meta.discourse.org/t/227584">discourse-hide-auth-method</a>. You should switch and then <a href="${themeURL}">remove this theme component</a>.`,
+      "loading-slider-theme",
+      {
+        dismissable: true,
+        level: "warn",
+        dismissDuration: moment.duration("1", "hour"),
+      }
+    );
+  }
+
 </script>
